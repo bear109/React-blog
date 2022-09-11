@@ -55,6 +55,11 @@ function LoginForm({ history }) {
   useEffect(() => {
     if (user) {
       navigate('/');
+      try {
+        localStorage.setItem('user', JSON.stringify(user));
+      } catch (e) {
+        console.log('error');
+      }
     }
   }, [navigate, user]);
 
